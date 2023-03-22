@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="team-members">
+        {% for chaqueMembre in team %}
+        <article>
+            <img src="{{ chaqueMembre.picture }}" alt="">
+            <div>
+                <h3>
+                    {{ chaqueMembre.firstname }} {{ chaqueMembre.lastname }}
+                    {{ chaqueMembre.lastname == "Potencier" ? "&#128151" : "" }}
+                </h3>
+            </div>
+        </article>
+        {% endfor %}
+    </section>
+{% endblock %}
+

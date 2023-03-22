@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <section class="wishes-list">
+        <h2>Tous les souhaits</h2>
+        {% for wish in wishes %}
+            <article>
+               <li> <a href="{{ path('wish_detail', {'wish': wish.id}) }}">{{ wish.title }}</a> contient {{ wish.description}} de {{ wish.user.email }}</li>
+
+               <a href="{{ path('wish_supprimer', {'id': wish.id}) }}">Supprimer</a>
+               <a href="{{ path('wish_modifier', {'wish': wish.id}) }}">Modifier</a>
+            </article>
+            <a href="{{ path('category_une', {'category':wish.category.id}) }}">
+                {{ wish.category.name }}
+            </a>
+        {% endfor %}
+    </section>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
